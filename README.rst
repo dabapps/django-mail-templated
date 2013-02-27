@@ -84,9 +84,9 @@ That's all. Please create an issue at GitHub if you have any notes,
 Extends
 =================
 
-You can extend templates like so:
+You can extend templates like so::
 
-    {% extends "email_base.tpl" %}
+	{% extends "email_base.tpl" %}
 
 	{% block subjectcontent %}
 	Subject
@@ -101,20 +101,20 @@ You can extend templates like so:
 	{% endblock %}
 	
 
-and email_base.tpl would look like this:
+and email_base.tpl would look like this::
 
 	{% block subject %}
-	     {% block subjectcontent %}{% endblock %}
+	{% block subjectcontent %}{% endblock %}
 	{% endblock %}
 	
 	{% block body %}
-	    A heading or logo
-	    {% block bodycontent %}{% endblock %}
+	A heading or logo
+	{% block bodycontent %}{% endblock %}
 	{% endblock %}
 	
 	{% block html %}
-	    A heading or logo
-	    {% block htmlcontent %}{% endblock %}
+	A heading or logo
+	{% block htmlcontent %}{% endblock %}
 	{% endblock %}
 	
 **Please note that you must include all blocks in the base template file.**
