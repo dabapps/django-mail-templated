@@ -1,8 +1,30 @@
 from django.template.loader import get_template
-from django.template.loader_tags import BlockNode
+from django.template.loader_tags import BlockNode, ExtendsNode
 from django.template import Context
-from django.conf import settings
 from django.core import mail
+
+
+def _get_node(template, name, block_lookups={}):
+    """
+    Get a named node from a template.
+    Returns `None` if a node with the given name does not exist.
+
+    taken from https://github.com/bradwhittington/django-templated-email/blob/master/templated_email/utils.py
+    """
+    for node in template:
+        if isinstance(node, BlockNode) and node.name == name:
+            #Rudimentary handling of extended templates, for issue #3
+            for i in xrange(len(node.nodelist)):
+                n = node.nodelist[i]
+                if isinstance(n, BlockNode) and n.name in block_lookups:
+                    node.nodelist[i] = block_lookups[n.name]
+            return node
+        elif isinstance(node, ExtendsNode):
+            lookups = dict([(n.name, n) for n in node.nodelist if isinstance(n, BlockNode)])
+            lookups.update(block_lookups)
+            return _get_node(node.get_parent({}), name, lookups)
+    return None
+
 
 class EmailMessage(mail.EmailMultiAlternatives):
     """Extends standard EmailMessage class with ability to use templates"""
@@ -36,17 +58,9 @@ class EmailMessage(mail.EmailMultiAlternatives):
     @template.setter
     def template(self, value):
         self._template = value
-        # Prepare template blocks to not search them each time we send
-        # a message.
-        for block in self._template.nodelist:
-            # We are interested in BlockNodes only. Ignore another elements.
-            if isinstance(block, BlockNode):
-                if block.name == 'subject':
-                    self._subject = block
-                elif block.name == 'body':
-                    self._body = block
-                if block.name == 'html':
-                    self._html = block
+        self._subject = _get_node(value, 'subject')
+        self._body = _get_node(value, 'body')
+        self._html = _get_node(value, 'html')
 
     def send(self, *args, **kwargs):
         """Render email with the current context and send it"""
