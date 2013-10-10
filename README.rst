@@ -71,6 +71,11 @@ Now you can send it::
     from mail_templated import send_mail
     send_mail('email/hello.tpl', {'user': user}, from_email, [user.email])
 
+
+You can add in BCC like this::
+
+    send_mail('email/hello.tpl', {'user': user}, from_email, [user.email], bcc=[user2.email])
+
 Or if you wish to add more control over message creation then use the class form::
 
     from mail_templated import EmailMessage
@@ -91,31 +96,31 @@ You can extend templates like so::
 	{% block subjectcontent %}
 	Subject
 	{% endblock %}
-	
+
 	{% block bodycontent %}
 	 This is a plain text message.
 	{% endblock %}
-	
+
 	{% block htmlcontent %}
 	This is an <strong>html</strong> message.
 	{% endblock %}
-	
+
 
 and email_base.tpl would look like this::
 
 	{% block subject %}
 	{% block subjectcontent %}{% endblock %}
 	{% endblock %}
-	
+
 	{% block body %}
 	A heading or logo
 	{% block bodycontent %}{% endblock %}
 	{% endblock %}
-	
+
 	{% block html %}
 	A heading or logo
 	{% block htmlcontent %}{% endblock %}
 	{% endblock %}
-	
+
 **Please note that you must include all blocks in the base template file.**
-If you dont include one of the blocks in the base template it will not be shown. So you cannot, for example, move the subject block into the top file. 
+If you dont include one of the blocks in the base template it will not be shown. So you cannot, for example, move the subject block into the top file.

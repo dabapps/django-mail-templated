@@ -82,6 +82,7 @@ class EmailMessage(mail.EmailMultiAlternatives):
                 else:
                     # Add alternative content.
                     self.attach_alternative(html, 'text/html')
+
         return super(mail.EmailMultiAlternatives, self).send(*args, **kwargs)
 
     def __getstate__(self):
@@ -103,7 +104,7 @@ class EmailMessage(mail.EmailMultiAlternatives):
 
 def send_mail(template_name, context, from_email, recipient_list,
               fail_silently=False, auth_user=None, auth_password=None,
-              connection=None):
+              connection=None, bcc=None):
     """
     Easy wrapper for sending a single message to a recipient list using
     django template system.
@@ -118,4 +119,4 @@ def send_mail(template_name, context, from_email, recipient_list,
                                     password=auth_password,
                                     fail_silently=fail_silently)
     return EmailMessage(template_name, context, None, None, from_email,
-                        recipient_list, connection=connection).send()
+                        recipient_list, connection=connection, bcc=bcc).send()
