@@ -75,6 +75,10 @@ Now you can send it::
 You can add in BCC like this::
 
     send_mail('email/hello.tpl', {'user': user}, from_email, [user.email], bcc=[user2.email])
+    
+You can also add an attachment like this:
+	
+	send_mail('email/hello.tpl', {'user': user}, from_email, [user.email], attachment="file/path.pdf")
 
 Or if you wish to add more control over message creation then use the class form::
 
