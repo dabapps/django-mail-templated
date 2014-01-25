@@ -75,9 +75,9 @@ Now you can send it::
 You can add in BCC like this::
 
     send_mail('email/hello.tpl', {'user': user}, from_email, [user.email], bcc=[user2.email])
-    
-You can also add an attachment like this:
-	
+
+You can also add an attachment like this::
+
 	send_mail('email/hello.tpl', {'user': user}, from_email, [user.email], attachment="file/path.pdf")
 
 Or if you wish to add more control over message creation then use the class form::
@@ -127,4 +127,21 @@ and email_base.tpl would look like this::
 	{% endblock %}
 
 **Please note that you must include all blocks in the base template file.**
+
 If you dont include one of the blocks in the base template it will not be shown. So you cannot, for example, move the subject block into the top file.
+
+
+Tests
+=================
+
+To run the unit tests you first need to create a virutal env in project root directory.
+
+`virtualenv env`
+
+Then you need to install the test requriements.
+
+`env/bin/pip install -r requirements.txt`
+
+Now you can run the unit tests using the following command.
+
+`env/bin/python mail_templated/tests/runtests.py`
