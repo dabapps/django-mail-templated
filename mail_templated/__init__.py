@@ -122,7 +122,6 @@ def send_mail(template_name, context, from_email, recipient_list,
     email = EmailMessage(template_name, context, None, None, from_email,
         recipient_list, connection=connection, bcc=bcc)
 
-    
     if attachment:
         if attachment_in_memory:
             email.attach(attachment)
