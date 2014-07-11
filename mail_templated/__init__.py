@@ -104,7 +104,7 @@ class EmailMessage(mail.EmailMultiAlternatives):
 
 def send_mail(template_name, context, from_email, recipient_list,
               fail_silently=False, auth_user=None, auth_password=None,
-              connection=None, bcc=None, attachment=None):
+              connection=None, bcc=None, attachment=None, attachment_in_memory=None):
     """
     Easy wrapper for sending a single message to a recipient list using
     django template system.
@@ -123,6 +123,9 @@ def send_mail(template_name, context, from_email, recipient_list,
         recipient_list, connection=connection, bcc=bcc)
 
     if attachment:
-        email.attach_file(attachment)
+        if attachment_in_memory:
+            email.attach(attachment)
+        else:
+            email.attach_file(attachment)
 
     return email.send()
