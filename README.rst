@@ -5,7 +5,7 @@ Django-Mail-Templated
 :Author: Artem Rizhov (https://github.com/artemrizhov)
 
 .. image:: https://travis-ci.org/maximilianhurl/django-mail-templated.svg
-    :target: https://travis-ci.org/maximilianhurl/django-mail-templated
+   :target: https://travis-ci.org/maximilianhurl/django-mail-templated
 
 
 Overview
@@ -140,12 +140,12 @@ Tests
 
 To run the unit tests you first need to create a virutal env in project root directory.
 
-`virtualenv env`
+    virtualenv env
 
 Then you need to install the test requriements.
 
-`env/bin/pip install -r requirements.txt`
+    env/bin/pip install -r requirements.txt
 
 Now you can run the unit tests using the following command.
 
-`env/bin/python mail_templated/tests/runtests.py`
+    env/bin/python mail_templated/tests/runtests.py
