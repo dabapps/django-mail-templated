@@ -56,6 +56,10 @@ class EmailMessage(mail.EmailMultiAlternatives):
 
     @template.setter
     def template(self, value):
+
+        if hasattr(value, 'template'):
+            value = value.template
+
         self._template = value
         self._subject = _get_node(value, 'subject')
         self._body = _get_node(value, 'body')
@@ -124,7 +128,7 @@ def send_mail(template_name, context, from_email, recipient_list,
 
     if attachment:
         if attachment_info:
-            email.attach(attachment_info['filename'], 
+            email.attach(attachment_info['filename'],
             attachment_info['content'], attachment_info['mimetype'])
         else:
             email.attach_file(attachment)

@@ -12,8 +12,14 @@ import sys
 sys.path.append(os.path.join(os.path.dirname(__file__), "../.."))
 os.environ['DJANGO_SETTINGS_MODULE'] = 'mail_templated.tests.settings'
 
+import django
 from django.conf import settings
 from django.test.utils import get_runner
+
+try:
+    django.setup()
+except AttributeError:
+    pass
 
 
 def usage():
