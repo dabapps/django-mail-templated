@@ -21,12 +21,12 @@ CLASSIFIERS = [
 ]
 
 setup(
-    name='django-mail-templated',
+    name='max-django-mail-templated',
     version='0.2.2',
     packages=['mail_templated'],
-    author='Artem Rizhov',
+    author='Artem Rizhov, Max hurl',
     author_email='artem.rizhov@gmail.com',
-    url='https://github.com/artemrizhov/django-mail-templated',
+    url='https://github.com/maximilianhurl/django-mail-templated',
     license='MIT',
     description=DESCRIPTION,
     long_description=LONG_DESCRIPTION,
