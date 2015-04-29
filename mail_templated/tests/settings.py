@@ -16,14 +16,12 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
+SOUTH_TESTS_MIGRATE = False
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',  # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'sqlite.db',                     # Or path to database file if using sqlite3.
-        'USER': '',                      # Not used with sqlite3.
-        'PASSWORD': '',                  # Not used with sqlite3.
-        'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
-        'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'memory'
     }
 }
 
@@ -69,12 +67,6 @@ TEMPLATE_LOADERS = (
     'django.template.loaders.app_directories.Loader',
 )
 
-MIDDLEWARE_CLASSES = (
-    'django.middleware.common.CommonMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-)
-
 ROOT_URLCONF = 'urls'
 
 TEMPLATE_DIRS = (
@@ -86,9 +78,6 @@ TEMPLATE_DIRS = (
 
 
 INSTALLED_APPS = (
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
     'django.contrib.sites',
     # Uncomment the next line to enable the admin:
     # 'django.contrib.admin',
@@ -98,7 +87,5 @@ INSTALLED_APPS = (
 )
 
 STATIC_URL = '/static/'
-
-AUTH_USER_MODEL = 'auth.User'
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
