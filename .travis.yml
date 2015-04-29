@@ -8,4 +8,4 @@ env:
 install:
   - pip install -q Django==$DJANGO_VERSION --use-mirrors
   - pip install path.py
-script: env/bin/python mail_templated/tests/runtests.py
+script: python mail_templated/tests/runtests.py
