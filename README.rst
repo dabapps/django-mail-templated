@@ -4,6 +4,10 @@ Django-Mail-Templated
 :Info: Send emails using Django template system
 :Author: Artem Rizhov (https://github.com/artemrizhov)
 
+.. image:: https://travis-ci.org/maximilianhurl/django-mail-templated.svg
+    :target: https://travis-ci.org/maximilianhurl/django-mail-templated
+
+
 Overview
 =================
 This is a tiny wrapper around the standard EmailMessage class and send_mail()
