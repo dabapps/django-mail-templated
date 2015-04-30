@@ -11,6 +11,9 @@ def _get_node(template, name, block_lookups={}):
 
     taken from https://github.com/bradwhittington/django-templated-email/blob/master/templated_email/utils.py
     """
+    context = Context()
+    context.template = template
+
     for node in template:
         if isinstance(node, BlockNode) and node.name == name:
             for i in xrange(len(node.nodelist)):
@@ -21,7 +24,7 @@ def _get_node(template, name, block_lookups={}):
         elif isinstance(node, ExtendsNode):
             lookups = dict([(n.name, n) for n in node.nodelist if isinstance(n, BlockNode)])
             lookups.update(block_lookups)
-            return _get_node(node.get_parent({}), name, lookups)
+            return _get_node(node.get_parent(context), name, lookups)
     return None
 
 
