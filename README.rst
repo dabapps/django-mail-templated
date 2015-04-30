@@ -1,8 +1,9 @@
 ==========
 Django-Mail-Templated
 ==========
-:Info: Send emails using Django template system
-:Author: Artem Rizhov (https://github.com/artemrizhov)
+
+This is a fork of `https://github.com/artemrizhov/django-mail-templated
+<https://github.com/artemrizhov/django-mail-templated/>`_. that includes support for template extension and supports Django 1.8
 
 .. image:: https://travis-ci.org/maximilianhurl/django-mail-templated.svg
    :target: https://travis-ci.org/maximilianhurl/django-mail-templated
@@ -18,7 +19,7 @@ Installation
 =================
 Run::
 
-    $ pip install django-mail-templated
+    $ pip install max-django-mail-templated
 
 And register the app in your settings file::
 
