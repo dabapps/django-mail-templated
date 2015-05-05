@@ -16,7 +16,7 @@ def _get_node(template, name, block_lookups={}):
 
     for node in template:
         if isinstance(node, BlockNode) and node.name == name:
-            for i in xrange(len(node.nodelist)):
+            for i in range(len(node.nodelist)):
                 n = node.nodelist[i]
                 if isinstance(n, BlockNode) and n.name in block_lookups:
                     node.nodelist[i] = block_lookups[n.name]
