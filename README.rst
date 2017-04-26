@@ -3,7 +3,7 @@ Django-Mail-Templated
 ==========
 
 This is a fork of `https://github.com/artemrizhov/django-mail-templated
-<https://github.com/artemrizhov/django-mail-templated/>`_. that includes support for template extension and supports Django 1.6 up to 1.10
+<https://github.com/artemrizhov/django-mail-templated/>`_. that includes support for template extension and supports Django 1.8 up to 1.11
 
 .. image:: https://travis-ci.org/maximilianhurl/django-mail-templated.svg
    :target: https://travis-ci.org/maximilianhurl/django-mail-templated
