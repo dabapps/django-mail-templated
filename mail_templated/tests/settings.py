@@ -1,9 +1,9 @@
 # Django settings for testproject project.
 
-from path import path
+from path import Path
 import django
 
-PROJECT_DIR = path(__file__).dirname()
+PROJECT_DIR = Path(__file__).dirname()
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
