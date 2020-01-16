@@ -7,6 +7,8 @@ Django-Mail-Templated
 This is a fork of `https://github.com/maximilianhurl/django-mail-templated
 <https://github.com/maximilianhurl/django-mail-templated/>`_. that includes support for Django 2.2
 
+Requires: Python >=3.5
+
 
 Overview
 =================
