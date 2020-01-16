@@ -21,12 +21,12 @@ CLASSIFIERS = [
 ]
 
 setup(
-    name='max-django-mail-templated',
-    version='1.3',
+    name='dabapps-django-mail-templated',
+    version='2.0',
     packages=['mail_templated'],
-    author='Artem Rizhov, Max hurl',
+    author='Artem Rizhov, Max hurl, DabApps',
     author_email='artem.rizhov@gmail.com',
-    url='https://github.com/maximilianhurl/django-mail-templated',
+    url='https://github.com/dabapps/django-mail-templated',
     license='MIT',
     description=DESCRIPTION,
     long_description=LONG_DESCRIPTION,
