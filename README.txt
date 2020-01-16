@@ -1,12 +1,11 @@
+FOR DABAPPS USE ONLY
+
 ==========
 Django-Mail-Templated
 ==========
 
-This is a fork of `https://github.com/artemrizhov/django-mail-templated
-<https://github.com/artemrizhov/django-mail-templated/>`_. that includes support for template extension and supports Django 1.8 up to 1.11
-
-.. image:: https://travis-ci.org/maximilianhurl/django-mail-templated.svg
-   :target: https://travis-ci.org/maximilianhurl/django-mail-templated
+This is a fork of `https://github.com/maximilianhurl/django-mail-templated
+<https://github.com/maximilianhurl/django-mail-templated/>`_. that includes support for Django 2.2
 
 
 Overview
@@ -19,7 +18,7 @@ Installation
 =================
 Run::
 
-    $ pip install max-django-mail-templated
+    $ pip install git+https://github.com/dabapps/django-mail-templated.git#egg=django-mail-templated
 
 And register the app in your settings file::
 
@@ -141,7 +140,7 @@ Tests
 
 To run the unit tests you first need to create a virutal env in project root directory.
 
-    virtualenv env
+    python3 -m venv env
 
 Then you need to install the test requriements.
 
